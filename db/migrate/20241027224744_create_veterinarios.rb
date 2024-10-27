@@ -8,6 +8,7 @@ class CreateVeterinarios < ActiveRecord::Migration[7.2]
       t.timestamps
     end
 
+    #Garante que os atributos e-mail e CRMV sejam únicos.
     add_index :veterinarios, :email, unique: true
     add_index :veterinarios, :crmv, unique: true
 
