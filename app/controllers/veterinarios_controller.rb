@@ -16,9 +16,9 @@ class VeterinariosController < ApplicationController
     def create
         @veterinario = Veterinario.new(veterinario_params)
         if @veterinario.save
-            render json: @veterinario, status: :created
+            render json: {message: 'Veterinário criado com sucesso!', veterinario: @veterinario}, status: :created
         else
-            render json: @veterinario.errors, status: :unprocessable_entity
+            render json: {error: 'Erro ao criar o veterinário'}, status: :unprocessable_entity
         end
     end
 
@@ -35,8 +35,11 @@ class VeterinariosController < ApplicationController
     #DELETE /veterinarios/:id
     def destroy
         @veterinario = Veterinario.find(params[:id])
-        @veterinario.destroy
-        head :no_content
+        if @veterinario.destroy
+            render json: {message: 'Veterinário deletado com sucesso!'}, status: :ok
+        else
+            render json: {error: 'Falha ao deletar veterinário'}, status: :unprocessable_entity
+        end
     end
 
     private
