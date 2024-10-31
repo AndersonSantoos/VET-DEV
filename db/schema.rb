@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2024_10_29_004542) do
+ActiveRecord::Schema[7.2].define(version: 2024_10_29_002752) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_stat_statements"
   enable_extension "plpgsql"
@@ -28,12 +28,6 @@ ActiveRecord::Schema[7.2].define(version: 2024_10_29_004542) do
     t.datetime "data_hora"
     t.string "sintomas"
     t.string "observacoes"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "prescricao_medicas", force: :cascade do |t|
-    t.string "prescricao"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
