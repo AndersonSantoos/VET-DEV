@@ -1,6 +1,6 @@
 class VeterinariosController < ApplicationController
 
-    #GET /veterinarios
+    #GET //veterinarios
     def index
         @veterinarios = Veterinario.all
         render json: @veterinarios

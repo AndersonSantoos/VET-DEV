@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   resources :animals, only: [:index, :show, :create, :destroy, :update]
   resources :tutors, only: [:index, :show, :create, :destroy, :update]
   resources :consultas, only: [:index, :show, :create, :destroy, :update]
-
+  resources :prescricao_medicas, only: [:index, :show, :create, :destroy, :update]
  
 
 
