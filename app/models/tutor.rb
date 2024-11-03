@@ -5,6 +5,6 @@ class Tutor < ApplicationRecord
 
         #Garante que os atributos não sejam nulos.
         validates :nome, presence: true
-        validates :email, presence: true
-        validates :cpf, presence: true
+        validates :email, presence: true, format: { with: URI::MailTo::EMAIL_REGEXP }
+        validates :cpf, presence: true, length: { is: 11 }, numericality: { only_integer: true }
 end
