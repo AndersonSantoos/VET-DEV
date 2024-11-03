@@ -1,52 +1,72 @@
 class ConsultasController < ApplicationController
-
-    #GET /consultas
+    before_action :set_consulta, only: [:show, :update, :destroy]
+  
+    # GET /consultas
     def index
-        @consultas = Consulta.all
-        render json: @consultas
+      @consultas = Consulta.all
+      render json: @consultas
+    rescue StandardError => e
+      render_error("Erro ao buscar lista de consultas", e)
     end
-
-    #GET /consultas/:id
+  
+    # GET /consultas/:id
     def show
-        @consulta = Consulta.find(params[:id])
-        render json: @consulta
+      render json: @consulta
+    rescue ActiveRecord::RecordNotFound
+      render json: { error: "Consulta não encontrada" }, status: :not_found
     end
-
-    #POST /consultas
+  
+    # POST /consultas
     def create
-        @consulta = Consulta.new(consulta_params)
-        if @consulta.save
-            render json: {message: 'Consulta criado com sucesso', consulta: @consulta}, status: :created
-        else
-            render json: {error: 'Erro ao criar a consulta'}, status: :unprocessable_entity
-        end
+      @consulta = Consulta.new(consulta_params)
+      if @consulta.save
+        render json: { message: 'Consulta criada com sucesso', consulta: @consulta }, status: :created
+      else
+        render json: { errors: @consulta.errors.full_messages }, status: :unprocessable_entity
+      end
+    rescue StandardError => e
+      render_error("Erro ao criar a consulta", e)
     end
-
-     #PUT /consultas/:id
-     def update
-        @consulta = Consulta.find(params[:id])
-        if @consulta.update(consulta_params)
-            render json: {message: 'Consulta atualizada com sucesso!', consulta: @consulta} 
-        else
-            render json: @consulta.erros, status: :unprocessable_entity
-        end
+  
+    # PUT /consultas/:id
+    def update
+      if @consulta.update(consulta_params)
+        render json: { message: 'Consulta atualizada com sucesso!', consulta: @consulta }
+      else
+        render json: { errors: @consulta.errors.full_messages }, status: :unprocessable_entity
+      end
+    rescue StandardError => e
+      render_error("Erro ao atualizar a consulta", e)
     end
-
-    #DELETE /consultas/:id
+  
+    # DELETE /consultas/:id
     def destroy
-        @consulta = Animal.find(params[:id])
-        if @consulta.destroy
-            render json: {message: 'Consulta deletado com sucesso!'}, status: :ok
-        else
-            render json: {error: 'Falha ao deletar consulta'}, status: :unprocessable_entity
-        end
+      if @consulta.destroy
+        render json: { message: 'Consulta deletada com sucesso!' }, status: :ok
+      else
+        render json: { error: 'Falha ao deletar a consulta' }, status: :unprocessable_entity
+      end
+    rescue StandardError => e
+      render_error("Erro ao deletar a consulta", e)
     end
-
+  
     private
-
-    #Permitir apens essa lista de parâmetros existentes.
-    def consulta_params
-        params.require(:consulta).permit(:data_hora, :sintomas, :observcoes)
+  
+    # Método para buscar a consulta por ID
+    def set_consulta
+      @consulta = Consulta.find(params[:id])
+    rescue ActiveRecord::RecordNotFound
+      render json: { error: 'Consulta não encontrada' }, status: :not_found
     end
-
-end
+  
+    # Lista de parâmetros permitidos para criar e atualizar consultas
+    def consulta_params
+      params.require(:consulta).permit(:data_hora, :sintomas, :observcoes)
+    end
+  
+    # Método de tratamento de erros para mensagens consistentes
+    def render_error(message, exception)
+      render json: { error: "#{message}: #{exception.message}" }, status: :internal_server_error
+    end
+  end
+  
