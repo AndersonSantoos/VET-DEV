@@ -1,5 +1,6 @@
 class Tutor < ApplicationRecord
-
+        #Relacionamento
+        has_many :animal
         #Garante que os atributos sejam únicos.
         validates :cpf, uniqueness: true
 

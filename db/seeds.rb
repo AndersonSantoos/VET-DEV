@@ -17,12 +17,17 @@ Tutor.create([
 ])
 
 Animal.create([
-  { nome: 'Rex', sexo: 'Masculino', especie: "Cachorro" , raca:"SRD"},
-  { nome: 'Miau', sexo: 'Feminino', especie: "Gato", raca: "Sphinx" },
-  { nome: 'Cristiano', sexo: 'Masculino', especie: "Gato", raca: "SRD" },
-  { nome: 'Vassoura', sexo: 'Feminino', especie: "Cachorro", raca: "Pug" },
-  { nome: 'Louro José', sexo: 'Masculino', especie: "Papagaio", raca: "SRD" }
+  { nome: 'Rex', sexo: 'Masculino', especie: "Cachorro" , raca:"SRD", tutor_id: 1},
+  { nome: 'Miau', sexo: 'Feminino', especie: "Gato", raca: "Sphinx", tutor_id: 2 },
+  { nome: 'Cristiano', sexo: 'Masculino', especie: "Gato", raca: "SRD", tutor_id: 2},
+  { nome: 'Vassoura', sexo: 'Feminino', especie: "Cachorro", raca: "Pug", tutor_id: 3 },
+  { nome: 'Louro José', sexo: 'Masculino', especie: "Papagaio", raca: "SRD", tutor_id: 4},
+  { nome: 'Romeu', sexo: 'Masculino', especie: "Rato", raca: "SRD", tutor_id: 5}
 ])
+
+
+
+
 
 Veterinario.create([
   {nome: "Davi Godoy", email: "davi@gmail.com" , crmv: "12456789"},
@@ -31,22 +36,22 @@ Veterinario.create([
 ]
 )
 
-PrescricaoMedica.create(
-[
-  {descricao: "Paciente encaminhado para raio X."},
-  {descricao: "Ministrar rifocina no local do machucado."},
-  {descricao: "Paciente encaminhado para exame de FIV e FELV."},
-  {descricao: "Ministrar paracetamol uma vez ao dia durante 3 dias."},
-  {descricao: "Paciente encaminhado para ultrassonografia;"},
-]
-)
-
 Consulta.create(
   [
-    {data_hora: "2024-06-30 22:06:30", sintomas: "Machucado na pata esquerda", observacoes: ""},
-    {data_hora: "2024-06-30 20:52:31", sintomas: "Dor estomacal", observacoes: ""},
-    {data_hora: "2024-06-29 21:07:50", sintomas: "Febre e corisa", observacoes: ""},
-    {data_hora: "2024-06-29 15:32:03", sintomas: "Machucados na pele", observacoes: "Conferir prescrição médica"},
-    {data_hora: "2024-06-28 13:56:27", sintomas: "Fortes dores abdominais ao apertar a barriga", observacoes: "Conferir prescrição médica"}
+    {data_hora: "2024-06-30 22:06:30", sintomas: "Machucado na pata esquerda", observacoes: "", veterinario_id: 1},
+    {data_hora: "2024-06-30 20:52:31", sintomas: "Dor estomacal", observacoes: "", veterinario_id: 2},
+    {data_hora: "2024-06-29 21:07:50", sintomas: "Febre e corisa", observacoes: "", veterinario_id: 3},
+    {data_hora: "2024-06-29 15:32:03", sintomas: "Machucados na pele", observacoes: "Conferir prescrição médica", veterinario_id: 2},
+    {data_hora: "2024-06-28 13:56:27", sintomas: "Fortes dores abdominais ao apertar a barriga", observacoes: "Conferir prescrição médica", veterinario_id: 1}
   ]
+)
+
+PrescricaoMedica.create(
+[
+  {descricao: "Paciente encaminhado para raio X.", consulta_id: 2},
+  {descricao: "Ministrar rifocina no local do machucado.", consulta_id: 1},
+  {descricao: "Paciente encaminhado para exame de FIV e FELV.", consulta_id: 4},
+  {descricao: "Ministrar paracetamol uma vez ao dia durante 3 dias.", consulta_id: 3},
+  {descricao: "Paciente encaminhado para ultrassonografia.", consulta_id: 5},
+]
 )
