@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resources :tutors, only: [:index, :show, :create, :destroy, :update]
   resources :consultas, only: [:index, :show, :create, :destroy, :update]
   resources :prescricao_medicas, only: [:index, :show, :create, :destroy, :update]
+  resources :sessoes, only: [:create, :destroy] # Para login e logout
  
 
 
