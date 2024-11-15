@@ -17,7 +17,8 @@ class TutorsController < ApplicationController
     # POST /tutors
     def create
       @tutor = Tutor.new(tutor_params)
-      if @tutor.save
+      if @tutor.valid?
+        @tutor.save
         render json: { message: 'Tutor criado com sucesso!', tutor: @tutor }, status: :created
       else
         render json: { errors: @tutor.errors.full_messages }, status: :unprocessable_entity
@@ -61,6 +62,7 @@ class TutorsController < ApplicationController
     def tutor_params
       params.require(:tutor).permit(:nome, :email, :cpf)
     end
+
   
     # Método de tratamento de erros para mensagens consistentes
     def render_error(message, exception)

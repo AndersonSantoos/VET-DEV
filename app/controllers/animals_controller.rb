@@ -65,6 +65,6 @@ class AnimalsController < ApplicationController
 
     # Permitir apenas essa lista de parâmetros existentes
     def animal_params
-        params.require(:animal).permit(:nome, :sexo, :especie, :raca)
+        params.require(:animal).permit(:nome, :sexo, :especie, :raca, :tutor_id)
     end
 end

@@ -65,7 +65,7 @@ class PrescricaoMedicasController < ApplicationController
   
     # Permitir apenas essa lista de parâmetros existentes
     def prescricao_medica_params
-      params.require(:prescricao_medica).permit(:descricao)
+      params.require(:prescricao_medica).permit(:descricao, :consulta_id)
     end
   end
   

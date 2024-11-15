@@ -61,7 +61,7 @@ class ConsultasController < ApplicationController
   
     # Lista de parâmetros permitidos para criar e atualizar consultas
     def consulta_params
-      params.require(:consulta).permit(:data_hora, :sintomas, :observacoes)
+      params.require(:consulta).permit(:data_hora, :sintomas, :observacoes, :veterinario_id)
     end
   
     # Método de tratamento de erros para mensagens consistentes

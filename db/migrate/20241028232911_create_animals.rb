@@ -5,7 +5,7 @@ class CreateAnimals < ActiveRecord::Migration[7.2]
       t.string :sexo
       t.string :raca
       t.string :especie
-
+#teste
       t.timestamps
     end
   end
