@@ -1,6 +1,9 @@
 class VeterinariosController < ApplicationController
     before_action :set_veterinario, only: [:show, :update, :destroy]
-  
+    
+     # Pular autenticação apenas para a ação `create`
+    skip_before_action :authorize_request, only: [:create]
+    
     # GET /veterinarios
     def index
       @veterinarios = Veterinario.all
