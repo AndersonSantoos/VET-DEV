@@ -1,6 +1,7 @@
 class Animal < ApplicationRecord
       #Relacionamento
       belongs_to :tutor
+      has_many :consultas
 
       #Garante que os atributos não sejam nulos.
       validates :nome, presence: true

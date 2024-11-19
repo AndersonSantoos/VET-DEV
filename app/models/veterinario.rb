@@ -1,6 +1,6 @@
 class Veterinario < ApplicationRecord
     #Relacionamento
-    has_many :consultas 
+    has_many :consultas
     ##, class_name: 'Consulta'
 
     #Garante que os atributos sejam únicos.
