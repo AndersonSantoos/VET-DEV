@@ -16,6 +16,18 @@ class AnimalsController < ApplicationController
         render json: { error: "Animal não encontrado" }, status: :not_found
     end
 
+    # GET /tutors/:tutor_id/animals
+    def by_tutor
+        @animals = Animal.where(tutor_id: params[:tutor_id])
+        if @animals.any?
+            render json: @animals, status: :ok
+        else
+            render json: { error: 'Nenhum animal encontrado para este tutor' }, status: :not_found
+        end
+    rescue StandardError => e
+        render json: { error: "Erro ao buscar os animais do tutor: #{e.message}" }, status: :internal_server_error
+    end
+
     # POST /animals
     def create
         @animal = Animal.new(animal_params)

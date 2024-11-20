@@ -9,6 +9,20 @@ class PrescricaoMedicasController < ApplicationController
       render json: { error: "Erro ao buscar lista de prescrições: #{e.message}" }, status: :internal_server_error
     end
   
+
+     # GET /consultas/:consulta_id/prescricoes
+  def by_consulta
+    @prescricoes = PrescricaoMedica.where(consulta_id: params[:consulta_id])
+    if @prescricoes.any?
+      render json: @prescricoes, status: :ok
+    else
+      render json: { error: 'Nenhuma prescrição encontrada para esta consulta' }, status: :not_found
+    end
+  rescue StandardError => e
+    render json: { error: "Erro ao buscar prescrições para a consulta: #{e.message}" }, status: :internal_server_error
+  end
+
+  
     # GET /prescricao_medicas/:id
     def show
       render json: @prescricao_medica

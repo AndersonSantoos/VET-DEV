@@ -9,6 +9,20 @@ class ConsultasController < ApplicationController
       render_error("Erro ao buscar lista de consultas", e)
     end
   
+      
+  # GET /consultas/veterinario/:veterinario_id
+  def by_veterinario
+    @consultas = Consulta.where(veterinario_id: params[:veterinario_id])
+
+    if @consultas.any?
+      render json: @consultas, status: :ok
+    else
+      render json: { error: 'Nenhuma consulta encontrada para este veterinário' }, status: :not_found
+    end
+  rescue StandardError => e
+    render_error("Erro ao buscar consultas para o veterinário", e)
+  end
+
     # GET /consultas/:id
     def show
       render json: @consulta
