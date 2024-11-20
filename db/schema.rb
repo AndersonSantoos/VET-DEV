@@ -10,8 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
-ActiveRecord::Schema[7.2].define(version: 2024_11_10_181834) do
+ActiveRecord::Schema[7.2].define(version: 2024_11_19_225637) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_stat_statements"
   enable_extension "plpgsql"
@@ -34,6 +33,8 @@ ActiveRecord::Schema[7.2].define(version: 2024_11_10_181834) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "veterinario_id"
+    t.bigint "animal_id", null: false
+    t.index ["animal_id"], name: "index_consulta_on_animal_id"
     t.index ["veterinario_id"], name: "index_consulta_on_veterinario_id"
   end
 
@@ -65,6 +66,7 @@ ActiveRecord::Schema[7.2].define(version: 2024_11_10_181834) do
   end
 
   add_foreign_key "animals", "tutors"
+  add_foreign_key "consulta", "animals"
   add_foreign_key "consulta", "veterinarios"
   add_foreign_key "prescricao_medicas", "consulta", column: "consulta_id"
 end

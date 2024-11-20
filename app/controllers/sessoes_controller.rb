@@ -27,7 +27,10 @@ class SessoesController < ApplicationController
       # Método para codificar o token JWT
     def encode_token(payload)
       payload[:iat] = Time.now.to_i                # Adiciona o timestamp de criação
-      payload[:exp] = 1.hour.from_now.to_i         # Define a expiração para 1 hora
+   feature-criacao-de-novas-rotas-de-consultas
+      payload[:exp] = 1.hour.from_now.to_i        # Define a expiração para 1 hora
+
+    
       JWT.encode(payload, SECRET_KEY)
     end
 
