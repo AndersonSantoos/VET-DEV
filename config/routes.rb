@@ -2,6 +2,12 @@ Rails.application.routes.draw do
   resources :veterinarios, only: [:index, :show, :create, :destroy, :update]
   
   resources :animals, only: [:index, :show, :create, :destroy, :update]
+
+  resources :animals, only: [:index, :show, :create, :destroy, :update] do
+    # Nova rota para listar todos os internamentos de um animal
+    get 'internamentos', to: 'internamentos#by_animal'
+  end
+  
   
   resources :tutors, only: [:index, :show, :create, :destroy, :update] do
     # Rota aninhada para listar os animais do tutor
@@ -17,6 +23,9 @@ Rails.application.routes.draw do
     # Nova rota para listar todas as prescrições médicas de uma consulta
     get 'prescricoes', to: 'prescricao_medicas#by_consulta'
   end
+
+  resources :internamentos, only: [:index, :show, :create, :update, :destroy]
+
   
   resources :sessoes, only: [:create, :destroy] # Para login e logout
   

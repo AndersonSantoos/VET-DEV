@@ -55,3 +55,11 @@ PrescricaoMedica.create(
   {descricao: "Paciente encaminhado para ultrassonografia.", consulta_id: 5},
 ]
 )
+
+Internamento.create([
+  { data_inicio: "2024-11-01", data_fim: "2024-11-05", observacoes: "Animal com problema respiratório", animal_id: 1, veterinario_id: 1 },
+  { data_inicio: "2024-11-10", data_fim: "2024-11-15", observacoes: "Animal com suspeita de infecção", animal_id: 1, veterinario_id: 1 },
+  { data_inicio: "2024-11-07", data_fim: "2024-11-09", observacoes: "Gato com dor abdominal", animal_id: 2, veterinario_id: 2 },
+  { data_inicio: "2024-11-12", data_fim: "2024-11-14", observacoes: "Cachorro com problema de pele", animal_id: 4, veterinario_id: 3 },
+  { data_inicio: "2024-11-20", data_fim: "2024-11-22", observacoes: "Papagaio com dificuldade respiratória", animal_id: 5, veterinario_id: 2 }
+])

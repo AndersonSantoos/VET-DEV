@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2024_11_19_225637) do
+ActiveRecord::Schema[7.2].define(version: 2024_11_21_221152) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_stat_statements"
   enable_extension "plpgsql"
@@ -36,6 +36,18 @@ ActiveRecord::Schema[7.2].define(version: 2024_11_19_225637) do
     t.bigint "animal_id", null: false
     t.index ["animal_id"], name: "index_consulta_on_animal_id"
     t.index ["veterinario_id"], name: "index_consulta_on_veterinario_id"
+  end
+
+  create_table "internamentos", force: :cascade do |t|
+    t.date "data_inicio"
+    t.date "data_fim"
+    t.text "observacoes"
+    t.bigint "animal_id", null: false
+    t.bigint "veterinario_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["animal_id"], name: "index_internamentos_on_animal_id"
+    t.index ["veterinario_id"], name: "index_internamentos_on_veterinario_id"
   end
 
   create_table "prescricao_medicas", force: :cascade do |t|
@@ -68,5 +80,7 @@ ActiveRecord::Schema[7.2].define(version: 2024_11_19_225637) do
   add_foreign_key "animals", "tutors"
   add_foreign_key "consulta", "animals"
   add_foreign_key "consulta", "veterinarios"
+  add_foreign_key "internamentos", "animals"
+  add_foreign_key "internamentos", "veterinarios"
   add_foreign_key "prescricao_medicas", "consulta", column: "consulta_id"
 end
