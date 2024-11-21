@@ -20,9 +20,10 @@ Rails.application.routes.draw do
   
   resources :sessoes, only: [:create, :destroy] # Para login e logout
   
+  #http://localhost:3000/swagger-ui
   get '/api-docs' => 'swagger#index' 
   get '/swagger-ui' => 'swagger_ui#index' 
-  get '/swagger-ui/*path' => 'swagger_ui#show'
+  get '/swagger-ui/*path' => 'swagger_ui#show' 
 
 
 
