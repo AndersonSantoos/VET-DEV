@@ -2,6 +2,12 @@ Rails.application.routes.draw do
   resources :veterinarios, only: [:index, :show, :create, :destroy, :update]
   
   resources :animals, only: [:index, :show, :create, :destroy, :update]
+
+  resources :animals, only: [:index, :show, :create, :destroy, :update] do
+    # Nova rota para listar todos os internamentos de um animal
+    get 'internamentos', to: 'internamentos#by_animal'
+  end
+  
   
   resources :tutors, only: [:index, :show, :create, :destroy, :update] do
     # Rota aninhada para listar os animais do tutor
@@ -18,11 +24,17 @@ Rails.application.routes.draw do
     get 'prescricoes', to: 'prescricao_medicas#by_consulta'
   end
 
+
   resources :prescricao_medicas, only: [:index, :show, :create, :destroy, :update] do
     # Rota para listar todas as prescrições de uma consulta específica
     get 'by_consulta/:consulta_id', to: 'prescricao_medicas#by_consulta', on: :collection
   end
-  
+
+    # Rota para listar todas os internamentos 
+  resources :internamentos, only: [:index, :show, :create, :update, :destroy]
+
+
+    # Rota de Sessão de Login
   resources :sessoes, only: [:create, :destroy] # Para login e logout
   
   #http://localhost:3000/swagger-ui
