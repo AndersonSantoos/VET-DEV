@@ -17,6 +17,11 @@ Rails.application.routes.draw do
     # Nova rota para listar todas as prescrições médicas de uma consulta
     get 'prescricoes', to: 'prescricao_medicas#by_consulta'
   end
+
+  resources :prescricao_medicas, only: [:index, :show, :create, :destroy, :update] do
+    # Rota para listar todas as prescrições de uma consulta específica
+    get 'by_consulta/:consulta_id', to: 'prescricao_medicas#by_consulta', on: :collection
+  end
   
   resources :sessoes, only: [:create, :destroy] # Para login e logout
   
@@ -25,10 +30,7 @@ Rails.application.routes.draw do
   get '/swagger-ui' => 'swagger_ui#index' 
   get '/swagger-ui/*path' => 'swagger_ui#show' 
 
-
-
   get "up" => "rails/health#show", as: :rails_health_check
   get "service-worker" => "rails/pwa#service_worker", as: :pwa_service_worker
   get "manifest" => "rails/pwa#manifest", as: :pwa_manifest
-
 end

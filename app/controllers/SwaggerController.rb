@@ -21,6 +21,7 @@ class SwaggerController < ApplicationController
 
   SWAGGERED_CLASSES = [
     VeterinariosController,
+    TutorsController,
     self
   ].freeze
 
