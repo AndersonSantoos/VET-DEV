@@ -24,9 +24,17 @@ Rails.application.routes.draw do
     get 'prescricoes', to: 'prescricao_medicas#by_consulta'
   end
 
+
+  resources :prescricao_medicas, only: [:index, :show, :create, :destroy, :update] do
+    # Rota para listar todas as prescrições de uma consulta específica
+    get 'by_consulta/:consulta_id', to: 'prescricao_medicas#by_consulta', on: :collection
+  end
+
+    # Rota para listar todas os internamentos 
   resources :internamentos, only: [:index, :show, :create, :update, :destroy]
 
-  
+
+    # Rota de Sessão de Login
   resources :sessoes, only: [:create, :destroy] # Para login e logout
   
   #http://localhost:3000/swagger-ui
@@ -34,10 +42,7 @@ Rails.application.routes.draw do
   get '/swagger-ui' => 'swagger_ui#index' 
   get '/swagger-ui/*path' => 'swagger_ui#show' 
 
-
-
   get "up" => "rails/health#show", as: :rails_health_check
   get "service-worker" => "rails/pwa#service_worker", as: :pwa_service_worker
   get "manifest" => "rails/pwa#manifest", as: :pwa_manifest
-
 end

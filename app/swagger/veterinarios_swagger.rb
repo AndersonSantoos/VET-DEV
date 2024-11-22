@@ -8,6 +8,7 @@ module VeterinariosSwagger
         key :summary, 'Lista todos os veterinários'
         key :operationId, 'getVeterinarios'
         key :produces, ['application/json']
+        key :tags, ['Veterinários']
         response 200 do
           key :description, 'Lista de veterinários'
           schema type: :array do
@@ -23,6 +24,7 @@ module VeterinariosSwagger
         key :operationId, 'createVeterinario'
         key :produces, ['application/json']
         key :consumes, ['application/json']
+        key :tags, ['Veterinários']
         parameter name: :veterinario, in: :body, required: true, description: 'Dados do veterinário', schema: { '$ref' => '#/definitions/VeterinarioInput' }
         response 201 do
           key :description, 'Veterinário criado'
@@ -52,6 +54,7 @@ module VeterinariosSwagger
         key :summary, 'Busca um veterinário pelo ID'
         key :operationId, 'getVeterinarioById'
         key :produces, ['application/json']
+        key :tags, ['Veterinários']
         response 200 do
           key :description, 'Detalhes do veterinário'
           schema do
@@ -68,6 +71,7 @@ module VeterinariosSwagger
         key :operationId, 'updateVeterinario'
         key :produces, ['application/json']
         key :consumes, ['application/json']
+        key :tags, ['Veterinários']
         parameter name: :veterinario, in: :body, required: true, description: 'Dados atualizados do veterinário', schema: { '$ref' => '#/definitions/VeterinarioInput' }
         response 200 do
           key :description, 'Veterinário atualizado'
@@ -93,6 +97,7 @@ module VeterinariosSwagger
         key :summary, 'Deleta um veterinário'
         key :operationId, 'deleteVeterinario'
         key :produces, ['application/json']
+        key :tags, ['Veterinários']
         response 200 do
           key :description, 'Veterinário deletado com sucesso'
         end
