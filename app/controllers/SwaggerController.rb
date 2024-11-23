@@ -1,15 +1,14 @@
 class SwaggerController < ApplicationController
   include Swagger::Blocks
 
-  # Pular autenticação para todas as ações do Swagger
   skip_before_action :authorize_request
 
   swagger_root do
     key :swagger, '2.0'
     info do
       key :version, '1.0.0'
-      key :title, 'API de Veterinários'
-      key :description, 'Documentação da API para gerenciamento de veterinários'
+      key :title, 'API PETSHOP'
+      key :description, 'Documentação da API PETSHOP'
       contact do
         key :name, 'Suporte'
       end
@@ -17,6 +16,12 @@ class SwaggerController < ApplicationController
     key :basePath, '/'
     key :consumes, ['application/json']
     key :produces, ['application/json']
+
+    security_definition :Bearer do
+      key :type, :apiKey
+      key :name, :Authorization
+      key :in, :header
+    end
   end
 
   SWAGGERED_CLASSES = [
@@ -25,6 +30,8 @@ class SwaggerController < ApplicationController
     AnimalsController,
     ConsultasController,
     PrescricaoMedicasController,
+    InternamentosController,
+    SessoesController,
     self
   ].freeze
 

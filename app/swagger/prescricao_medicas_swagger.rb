@@ -17,6 +17,9 @@ module PrescricaoMedicasSwagger
             end
           end
         end
+        security do
+          key :Bearer, []
+        end
       end
 
       operation :post do
@@ -44,6 +47,9 @@ module PrescricaoMedicasSwagger
             end
           end
         end
+        security do
+          key :Bearer, []
+        end
       end
     end
 
@@ -63,6 +69,9 @@ module PrescricaoMedicasSwagger
         end
         response 404 do
           key :description, 'Prescrição médica não encontrada'
+        end
+        security do
+          key :Bearer, []
         end
       end
 
@@ -91,6 +100,9 @@ module PrescricaoMedicasSwagger
             end
           end
         end
+        security do
+          key :Bearer, []
+        end
       end
 
       operation :delete do
@@ -103,6 +115,9 @@ module PrescricaoMedicasSwagger
         end
         response 422 do
           key :description, 'Falha ao deletar prescrição médica'
+        end
+        security do
+          key :Bearer, []
         end
       end
     end
@@ -125,6 +140,9 @@ module PrescricaoMedicasSwagger
         end
         response 404 do
           key :description, 'Nenhuma prescrição médica encontrada para esta consulta'
+        end
+        security do
+          key :Bearer, []
         end
       end
     end

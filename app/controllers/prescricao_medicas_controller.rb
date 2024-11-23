@@ -1,10 +1,6 @@
 class PrescricaoMedicasController < ApplicationController
     include PrescricaoMedicasSwagger
-
-    # Pular autenticação para todas as ações CRUD ao usar o Swagger
-    before_action :skip_auth_if_swagger
-    before_action :authorize_request, except: [:index, :show, :create, :update, :destroy]
-
+    
     before_action :set_prescricao_medica, only: [:show, :update, :destroy]
   
     # GET /prescricao_medicas
@@ -87,12 +83,5 @@ class PrescricaoMedicasController < ApplicationController
     def prescricao_medica_params
       params.require(:prescricao_medica).permit(:descricao, :consulta_id)
     end
-   
-    def skip_auth_if_swagger
-      if Rails.configuration.respond_to?(:swagger_mode) && Rails.configuration.swagger_mode
-        self.class.skip_before_action :authorize_request, raise: false
-      end
-    end
-    
   end
   
