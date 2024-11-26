@@ -1,9 +1,5 @@
 class AnimalsController < ApplicationController
     include AnimalsSwagger
-    # Pular autenticação para todas as ações CRUD ao usar o Swagger
-    before_action :skip_auth_if_swagger
-    before_action :authorize_request, except: [:index, :show, :create, :update, :destroy]
-    
     
     before_action :set_animal, only: [:show, :update, :destroy]
 
@@ -85,11 +81,4 @@ class AnimalsController < ApplicationController
     def animal_params
         params.require(:animal).permit(:nome, :sexo, :especie, :raca, :tutor_id)
     end
-
-     # Método para pular a autenticação se a flag `swagger_mode` estiver ativada
-     def skip_auth_if_swagger
-        if Rails.configuration.respond_to?(:swagger_mode) && Rails.configuration.swagger_mode
-          self.class.skip_before_action :authorize_request, raise: false
-        end
-      end
 end

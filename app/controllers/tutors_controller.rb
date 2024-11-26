@@ -1,10 +1,6 @@
 class TutorsController < ApplicationController
     include TutorsSwagger
-
-    # Pular autenticação para todas as ações CRUD ao usar o Swagger
-    before_action :skip_auth_if_swagger
-    before_action :authorize_request, except: [:index, :show, :create, :update, :destroy]
-
+    
     before_action :set_tutor, only: [:show, :update, :destroy]
   
     # GET /tutors
@@ -73,13 +69,6 @@ class TutorsController < ApplicationController
     # Método de tratamento de erros para mensagens consistentes
     def render_error(message, exception)
       render json: { error: "#{message}: #{exception.message}" }, status: :internal_server_error
-    end
-
-      # Método para pular a autenticação se a flag `swagger_mode` estiver ativada
-    def skip_auth_if_swagger
-      if Rails.configuration.respond_to?(:swagger_mode) && Rails.configuration.swagger_mode
-        self.class.skip_before_action :authorize_request, raise: false
-      end
     end
   end
   

@@ -1,4 +1,6 @@
 class InternamentosController < ApplicationController
+  include InternamentosSwagger
+
   before_action :set_internamento, only: [:show, :update, :destroy]
 
   # GET /internamentos

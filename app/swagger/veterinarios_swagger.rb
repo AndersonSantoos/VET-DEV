@@ -17,6 +17,9 @@ module VeterinariosSwagger
             end
           end
         end
+        security do
+          key :Bearer, []
+        end
       end
 
       operation :post do
@@ -44,6 +47,9 @@ module VeterinariosSwagger
             end
           end
         end
+        security do
+          key :Bearer, []
+        end
       end
     end
 
@@ -63,6 +69,9 @@ module VeterinariosSwagger
         end
         response 404 do
           key :description, 'Veterinário não encontrado'
+        end
+        security do
+          key :Bearer, []
         end
       end
 
@@ -91,6 +100,9 @@ module VeterinariosSwagger
             end
           end
         end
+        security do
+          key :Bearer, []
+        end
       end
 
       operation :delete do
@@ -103,6 +115,9 @@ module VeterinariosSwagger
         end
         response 422 do
           key :description, 'Falha ao deletar veterinário'
+        end
+        security do
+          key :Bearer, []
         end
       end
     end
