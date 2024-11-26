@@ -31,9 +31,10 @@ Rails.application.routes.draw do
   end
 
     # Rota para listar todas os internamentos 
-  resources :internamentos, only: [:index, :show, :create, :update, :destroy]
+    resources :internamentos, only: [:index, :show, :create, :update, :destroy]
 
-
+    resources :estoques, only: [:index, :show, :create, :update, :destroy]
+   
     # Rota de Sessão de Login
   resources :sessoes, only: [:create, :destroy] # Para login e logout
   
