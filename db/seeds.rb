@@ -38,7 +38,9 @@ Veterinario.create([
 
 Consulta.create(
   [
+    {data_hora: "2024-06-30 22:06:30", sintomas: "Machucado na pata esquerda", observacoes: "bla", veterinario_id: 1, animal_id: 1},    
     {data_hora: "2024-06-30 22:06:30", sintomas: "Machucado na pata esquerda", observacoes: "", veterinario_id: 1, animal_id: 1},
+    {data_hora: "2024-06-30 22:06:30", sintomas: "Machucado na pata esquerda", observacoes: "bla", veterinario_id: 1, animal_id: 1},
     {data_hora: "2024-06-30 20:52:31", sintomas: "Dor estomacal", observacoes: "", veterinario_id: 2, animal_id: 4},
     {data_hora: "2024-06-29 21:07:50", sintomas: "Febre e corisa", observacoes: "", veterinario_id: 3, animal_id: 5},
     {data_hora: "2024-06-29 15:32:03", sintomas: "Machucados na pele", observacoes: "Conferir prescrição médica", veterinario_id: 2, animal_id: 3},

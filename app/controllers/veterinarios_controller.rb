@@ -1,5 +1,6 @@
 class VeterinariosController < ApplicationController
   include VeterinariosSwagger
+  skip_before_action :authorize_request, only: [:create]
 
   before_action :set_veterinario, only: [:show, :update, :destroy]
 

@@ -147,6 +147,31 @@ module ConsultasSwagger
       end
     end
 
+    swagger_path '/consultas/animal/{animal_id}' do
+      parameter name: :animal_id, in: :path, type: :integer, required: true, description: 'ID do animal'
+      
+      operation :get do
+        key :summary, 'Lista todas as consultas de um animal'
+        key :operationId, 'getConsultasByAnimal'
+        key :produces, ['application/json']
+        key :tags, ['Consultas']
+        response 200 do
+          key :description, 'Consultas do animal'
+          schema type: :array do
+            items do
+              key :'$ref', :Consulta
+            end
+          end
+        end
+        response 404 do
+          key :description, 'Nenhuma consulta encontrada para este animal'
+        end
+        security do
+          key :Bearer, []
+        end
+      end
+    end
+
     # Definição do modelo Consulta
     swagger_schema :Consulta do
       key :required, [:id, :data_hora, :sintomas, :observacoes, :veterinario_id, :animal_id]
