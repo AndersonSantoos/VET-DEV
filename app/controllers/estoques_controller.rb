@@ -1,6 +1,7 @@
 class EstoquesController < ApplicationController
     # Pular autenticação para facilitar os testes
-    skip_before_action :authorize_request
+    include EstoquesSwagger
+    # skip_before_action :authorize_request
   
     before_action :set_estoque, only: [:show, :update, :destroy]
   

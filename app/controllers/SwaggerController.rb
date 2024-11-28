@@ -31,7 +31,9 @@ class SwaggerController < ApplicationController
     ConsultasController,
     PrescricaoMedicasController,
     InternamentosController,
+    EstoquesController,
     SessoesController,
+    
     self
   ].freeze
 
