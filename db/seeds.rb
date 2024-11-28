@@ -38,7 +38,9 @@ Veterinario.create([
 
 Consulta.create(
   [
+    {data_hora: "2024-06-30 22:06:30", sintomas: "Machucado na pata esquerda", observacoes: "bla", veterinario_id: 1, animal_id: 1},    
     {data_hora: "2024-06-30 22:06:30", sintomas: "Machucado na pata esquerda", observacoes: "", veterinario_id: 1, animal_id: 1},
+    {data_hora: "2024-06-30 22:06:30", sintomas: "Machucado na pata esquerda", observacoes: "bla", veterinario_id: 1, animal_id: 1},
     {data_hora: "2024-06-30 20:52:31", sintomas: "Dor estomacal", observacoes: "", veterinario_id: 2, animal_id: 4},
     {data_hora: "2024-06-29 21:07:50", sintomas: "Febre e corisa", observacoes: "", veterinario_id: 3, animal_id: 5},
     {data_hora: "2024-06-29 15:32:03", sintomas: "Machucados na pele", observacoes: "Conferir prescrição médica", veterinario_id: 2, animal_id: 3},
@@ -62,4 +64,72 @@ Internamento.create([
   { data_inicio: "2024-11-07", data_fim: "2024-11-09", observacoes: "Gato com dor abdominal", animal_id: 2, veterinario_id: 2 },
   { data_inicio: "2024-11-12", data_fim: "2024-11-14", observacoes: "Cachorro com problema de pele", animal_id: 4, veterinario_id: 3 },
   { data_inicio: "2024-11-20", data_fim: "2024-11-22", observacoes: "Papagaio com dificuldade respiratória", animal_id: 5, veterinario_id: 2 }
+])
+
+Estoque.create([
+  {
+    nome: 'Ibuprofeno',
+    descricao: 'Anti-inflamatório e analgésico utilizado para reduzir febre e dor.',
+    quantidade: 100,
+    unidade_de_medida: 'comprimidos',
+    data_de_validade: '2025-12-31',
+    fornecedor: 'Farmacêutica XYZ',
+    preco_de_compra: 12.50,
+    localizacao: 'Prateleira A1',
+    codigo_do_produto: 'MED001',
+    categoria: 'Medicamentos',
+    data_de_entrada: '2024-01-10'
+  },
+  {
+    nome: 'Paracetamol',
+    descricao: 'Analgésico e antipirético utilizado para tratar dores leves a moderadas.',
+    quantidade: 200,
+    unidade_de_medida: 'comprimidos',
+    data_de_validade: '2025-11-30',
+    fornecedor: 'Laboratórios ABC',
+    preco_de_compra: 8.75,
+    localizacao: 'Prateleira B2',
+    codigo_do_produto: 'MED002',
+    categoria: 'Medicamentos',
+    data_de_entrada: '2024-02-15'
+  },
+  {
+    nome: 'Amoxicilina',
+    descricao: 'Antibiótico utilizado para tratar diversas infecções bacterianas.',
+    quantidade: 150,
+    unidade_de_medida: 'cápsulas',
+    data_de_validade: '2025-10-31',
+    fornecedor: 'Farmacêutica XYZ',
+    preco_de_compra: 25.00,
+    localizacao: 'Prateleira C3',
+    codigo_do_produto: 'MED003',
+    categoria: 'Medicamentos',
+    data_de_entrada: '2024-03-20'
+  },
+  {
+    nome: 'Omeprazol',
+    descricao: 'Medicamento utilizado para tratar problemas de ácido gástrico.',
+    quantidade: 80,
+    unidade_de_medida: 'comprimidos',
+    data_de_validade: '2026-01-31',
+    fornecedor: 'Laboratórios ABC',
+    preco_de_compra: 15.20,
+    localizacao: 'Prateleira D4',
+    codigo_do_produto: 'MED004',
+    categoria: 'Medicamentos',
+    data_de_entrada: '2024-04-05'
+  },
+  {
+    nome: 'Cetoconazol',
+    descricao: 'Antifúngico utilizado para tratar infecções fúngicas da pele.',
+    quantidade: 60,
+    unidade_de_medida: 'frascos',
+    data_de_validade: '2026-05-31',
+    fornecedor: 'Farmacêutica XYZ',
+    preco_de_compra: 32.00,
+    localizacao: 'Prateleira E5',
+    codigo_do_produto: 'MED005',
+    categoria: 'Medicamentos',
+    data_de_entrada: '2024-05-10'
+  }
 ])

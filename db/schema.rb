@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2024_11_21_221152) do
+ActiveRecord::Schema[7.2].define(version: 2024_11_26_172127) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_stat_statements"
   enable_extension "plpgsql"
@@ -36,6 +36,22 @@ ActiveRecord::Schema[7.2].define(version: 2024_11_21_221152) do
     t.bigint "animal_id", null: false
     t.index ["animal_id"], name: "index_consulta_on_animal_id"
     t.index ["veterinario_id"], name: "index_consulta_on_veterinario_id"
+  end
+
+  create_table "estoques", force: :cascade do |t|
+    t.string "nome"
+    t.text "descricao"
+    t.integer "quantidade"
+    t.string "unidade_de_medida"
+    t.date "data_de_validade"
+    t.string "fornecedor"
+    t.decimal "preco_de_compra"
+    t.string "localizacao"
+    t.string "codigo_do_produto"
+    t.string "categoria"
+    t.date "data_de_entrada"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "internamentos", force: :cascade do |t|
