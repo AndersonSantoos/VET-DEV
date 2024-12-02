@@ -1,4 +1,6 @@
 class AnimalsController < ApplicationController
+    include AnimalsSwagger
+    
     before_action :set_animal, only: [:show, :update, :destroy]
 
     # GET /animals
@@ -14,6 +16,18 @@ class AnimalsController < ApplicationController
         render json: @animal
     rescue ActiveRecord::RecordNotFound
         render json: { error: "Animal não encontrado" }, status: :not_found
+    end
+
+    # GET /tutors/:tutor_id/animals
+    def by_tutor
+        @animals = Animal.where(tutor_id: params[:tutor_id])
+        if @animals.any?
+            render json: @animals, status: :ok
+        else
+            render json: { error: 'Nenhum animal encontrado para este tutor' }, status: :not_found
+        end
+    rescue StandardError => e
+        render json: { error: "Erro ao buscar os animais do tutor: #{e.message}" }, status: :internal_server_error
     end
 
     # POST /animals
@@ -65,6 +79,6 @@ class AnimalsController < ApplicationController
 
     # Permitir apenas essa lista de parâmetros existentes
     def animal_params
-        params.require(:animal).permit(:nome, :sexo, :especie, :raca)
+        params.require(:animal).permit(:nome, :sexo, :especie, :raca, :tutor_id)
     end
 end

@@ -55,3 +55,9 @@ group :test do
   gem "capybara"
   gem "selenium-webdriver"
 end
+
+# Auth
+gem 'jwt'
+
+gem 'swagger-blocks', '~> 3.0'
+gem 'swagger-ui_rails'
