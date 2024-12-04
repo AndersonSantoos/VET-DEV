@@ -99,13 +99,15 @@ input[type="password"] {
     text-decoration: underline;
     font-family: "GabrielSansFino";
     color: #717f36;
-    padding: 20px;
+    padding: 10px;
+    position: relative;
+    top: 7px;
 }
 
 button {
     all: unset;
     cursor: pointer;
-    padding: 10px 20px;
+    padding: 10px 30px;
     background-color: #d8d8d8;
     color: #000000;
     font-size: 16px;
@@ -113,6 +115,8 @@ button {
     transition: background-color 0.3s ease;
     font-family: "GabrielSansFino";
     width: calc(100% - 80px); /* Ajusta a largura para o tamanho disponível */
+    position: relative;
+    top: 10px;
 }
 
 button:hover {
