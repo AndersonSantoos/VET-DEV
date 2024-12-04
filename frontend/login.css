@@ -1,0 +1,136 @@
+/* Fonte personalizada */
+@font-face {
+    font-family: "GabrielSans";
+    src: url(anexos/fonts/GabrielSans/css/GabrielSans-Trial-Bold.ttf);
+}
+
+@font-face {
+    font-family: "GabrielSansFino";
+    src: url(anexos/fonts/GabrielSans/css/GabrielSans-Trial-Light.ttf);
+}
+
+/* Estilos gerais */
+body {
+    background-color: #627411;
+    text-align: center;
+    margin: 0;
+}
+
+.background {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #627411;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.logo-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.fundo {
+    background-color: white;
+    width: 90%; /* Ajuste a largura para 90% em telas menores */
+    max-width: 400px; /* Limita a largura máxima a 400px */
+    padding: 20px;
+    border-radius: 40px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.titulo {
+    font-family: "GabrielSans";
+    font-weight: 200;
+    color: #627411;
+    font-size: 48px;
+    padding: 20px;
+    text-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.preenchimentos {
+    position: relative;
+    top: -40px;
+}
+
+.campo-texto {
+    position: relative;
+    bottom: -35px;
+}
+
+input.usuario,
+input.senha {
+    padding: 10px 20px;
+    border-radius: 5px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgba(119, 117, 117, 0.5);
+    width: calc(100% - 80px); /* Ajusta a largura para o tamanho disponível */
+}
+
+input.usuario:focus,
+input.senha:focus {
+    outline: none;
+}
+
+input.senha {
+    margin: 20px 0;
+}
+
+input.senha:focus {
+    background-color: rgba(119, 117, 117, 0.2);
+}
+
+input[type="password"] {
+    -webkit-text-security: disc;
+    color: #737272;
+}
+
+.texto-sistema {
+    color: black;
+    font-size: 12px;
+    text-decoration: underline;
+    font-family: "GabrielSansFino";
+    color: #717f36;
+    padding: 20px;
+}
+
+button {
+    all: unset;
+    cursor: pointer;
+    padding: 10px 20px;
+    background-color: #d8d8d8;
+    color: #000000;
+    font-size: 16px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    font-family: "GabrielSansFino";
+    width: calc(100% - 80px); /* Ajusta a largura para o tamanho disponível */
+}
+
+button:hover {
+    background-color: #d8d8d894;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .titulo {
+        font-size: 36px; /* Tamanho da fonte menor para telas pequenas */
+    }
+
+    input.usuario,
+    input.senha {
+        padding: 10px 20px; /* Reduz o padding em telas pequenas */
+    }
+
+    button {
+        padding: 10px 20px; /* Reduz o padding em telas pequenas */
+    }
+}
