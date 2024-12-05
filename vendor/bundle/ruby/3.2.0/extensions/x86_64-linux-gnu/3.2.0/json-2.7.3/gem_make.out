@@ -1,0 +1,21 @@
+current directory: /mnt/c/Users/Dilson/Documents/VET-DEV/vendor/bundle/ruby/3.2.0/gems/json-2.7.3/ext/json/ext/parser
+/usr/bin/ruby3.2 -I/usr/lib/ruby/vendor_ruby extconf.rb
+checking for rb_enc_raise() in ruby.h... yes
+checking for rb_enc_interned_str() in ruby.h... yes
+checking for whether -std=c99 is accepted as CFLAGS... yes
+creating Makefile
+
+current directory: /mnt/c/Users/Dilson/Documents/VET-DEV/vendor/bundle/ruby/3.2.0/gems/json-2.7.3/ext/json/ext/parser
+make DESTDIR\= sitearchdir\=./.gem.20241203-7625-am2g4h sitelibdir\=./.gem.20241203-7625-am2g4h clean
+
+current directory: /mnt/c/Users/Dilson/Documents/VET-DEV/vendor/bundle/ruby/3.2.0/gems/json-2.7.3/ext/json/ext/parser
+make DESTDIR\= sitearchdir\=./.gem.20241203-7625-am2g4h sitelibdir\=./.gem.20241203-7625-am2g4h
+compiling parser.c
+linking shared-object json/ext/parser.so
+
+current directory: /mnt/c/Users/Dilson/Documents/VET-DEV/vendor/bundle/ruby/3.2.0/gems/json-2.7.3/ext/json/ext/parser
+make DESTDIR\= sitearchdir\=./.gem.20241203-7625-am2g4h sitelibdir\=./.gem.20241203-7625-am2g4h install
+/usr/bin/install -c -m 0755 parser.so ./.gem.20241203-7625-am2g4h/json/ext
+
+current directory: /mnt/c/Users/Dilson/Documents/VET-DEV/vendor/bundle/ruby/3.2.0/gems/json-2.7.3/ext/json/ext/parser
+make DESTDIR\= sitearchdir\=./.gem.20241203-7625-am2g4h sitelibdir\=./.gem.20241203-7625-am2g4h clean

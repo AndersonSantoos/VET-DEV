@@ -1,0 +1,162 @@
+/* Fonte personalizada */
+@font-face {
+    font-family: "GabrielSans Black";
+    src: url(anexos/fonts/GabrielSans/css/GabrielSans-Trial-Black.ttf);
+}
+
+@font-face {
+    font-family: "GabrielSansFino";
+    src: url(anexos/fonts/GabrielSans/css/GabrielSans-Trial-Light.ttf);
+}
+
+/* Estilos gerais */
+body {
+    background-color: #627411;
+    text-align: center;
+    margin: 0;
+    position: relative;
+    bottom: 50px;
+}
+
+.background {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #627411;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.logo-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.fundo {
+    background-color: white;
+    width: 90%; /* Ajuste a largura para 90% em telas menores */
+    max-width: 300px; /* Limita a largura máxima a 400px */
+    margin: 10px;   
+    border-radius: 40px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+    font-family: "GabrielSansFino";
+    font-size: 8px;
+    font-weight: 100;
+    color: #627411;
+    text-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); ;
+}
+
+.fundo:hover{
+    background-color: #c8d39b;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.titulo {
+    font-family: "GabrielSans Black";
+    font-weight: 100;
+    color: #fafafa;
+    font-size: 20px;
+    padding: 20px;
+    text-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.preenchimentos {
+    position: relative;
+    top: -40px;
+}
+
+.campo-texto {
+    position: relative;
+    bottom: -35px;
+}
+
+select, input {
+    margin: 10px 0;
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: 1px solid rgba(119, 117, 117, 0.5);
+    width: calc(100% - 40px); /* Ajuste para preencher a largura disponível */
+    box-sizing: border-box; /* Inclui padding e border no cálculo da largura */
+}
+
+select:focus, input:focus {
+    outline: none;
+}
+
+input[type="password"] {
+    -webkit-text-security: disc;
+    color: #737272;
+}
+
+.texto-sistema {
+    color: black;
+    font-size: 12px;
+    text-decoration: underline;
+    font-family: "GabrielSansFino";
+    color: #717f36;
+    padding: 10px;
+    position: relative;
+    top: 7px;
+}
+
+button {
+    all: unset;
+    cursor: pointer;
+    font-family: "GabrielSansFino";
+    color: #627411;
+    font-weight: 100;
+    position: relative;
+    top: 60px;
+    width: 100px;
+    margin: 10px;
+    padding: 10px;
+    background-color: #ffffff;
+    border-radius: 40px;
+    transition: background-color 0.3s ease;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+
+}
+
+footer{
+    color: white;
+    font-family: "GabrielSansFino";
+    font-size: 15px;
+    position: relative;
+    bottom: 50px;
+    margin: auto;
+
+}
+
+button:hover {
+    background-color: #d8d8d894;
+    transition: background-color 0.3s ease;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .titulo {
+        font-size: 24px; /* Ajuste o tamanho da fonte */
+    }
+
+    input, select {
+        padding: 10px 15px; /* Reduza o padding */
+    }
+
+    button {
+        padding: 10px 15px; /* Reduza o padding */
+    }
+
+    footer{
+        bottom: 5px;
+    
+    }
+}

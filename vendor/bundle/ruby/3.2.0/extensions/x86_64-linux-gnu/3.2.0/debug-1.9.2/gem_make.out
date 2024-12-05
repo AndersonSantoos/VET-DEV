@@ -1,0 +1,19 @@
+current directory: /mnt/c/Users/Dilson/Documents/VET-DEV/vendor/bundle/ruby/3.2.0/gems/debug-1.9.2/ext/debug
+/usr/bin/ruby3.2 -I/usr/lib/ruby/vendor_ruby extconf.rb
+creating Makefile
+
+current directory: /mnt/c/Users/Dilson/Documents/VET-DEV/vendor/bundle/ruby/3.2.0/gems/debug-1.9.2/ext/debug
+make DESTDIR\= sitearchdir\=./.gem.20241203-7625-z9s40f sitelibdir\=./.gem.20241203-7625-z9s40f clean
+
+current directory: /mnt/c/Users/Dilson/Documents/VET-DEV/vendor/bundle/ruby/3.2.0/gems/debug-1.9.2/ext/debug
+make DESTDIR\= sitearchdir\=./.gem.20241203-7625-z9s40f sitelibdir\=./.gem.20241203-7625-z9s40f
+compiling debug.c
+compiling iseq_collector.c
+linking shared-object debug/debug.so
+
+current directory: /mnt/c/Users/Dilson/Documents/VET-DEV/vendor/bundle/ruby/3.2.0/gems/debug-1.9.2/ext/debug
+make DESTDIR\= sitearchdir\=./.gem.20241203-7625-z9s40f sitelibdir\=./.gem.20241203-7625-z9s40f install
+/usr/bin/install -c -m 0755 debug.so ./.gem.20241203-7625-z9s40f/debug
+
+current directory: /mnt/c/Users/Dilson/Documents/VET-DEV/vendor/bundle/ruby/3.2.0/gems/debug-1.9.2/ext/debug
+make DESTDIR\= sitearchdir\=./.gem.20241203-7625-z9s40f sitelibdir\=./.gem.20241203-7625-z9s40f clean

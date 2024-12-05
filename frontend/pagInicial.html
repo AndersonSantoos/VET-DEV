@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mascot's - Menu Inicial</title>
+    <link rel="icon" href="anexos/favicon.png">
+    <link rel="stylesheet" href="pagInicial.css">
+</head>
+<body>
+    <div class="background">
+        <div class="logo-container">
+            <img src="anexos/logo_editada.png" alt="Imagem clínica Mascot's">
+        </div>
+        <div class="titulo">Menu Inicial </div>
+
+        <div class="fundo">
+            <h1>Cadastrar animal</h1>
+        </div>
+
+        <div class="fundo">
+            <h1>Criar nova consulta</h1>
+        </div>
+
+        <div class="fundo">
+            <h1>Conferir consultas</h1>
+        </div>
+
+        <div class="fundo">
+            <h1>Conferir internamentos</h1>
+        </div>
+
+        <div class="fundo">
+            <h1>Gestao de estoque</h1>
+        </div>
+
+            <div class="preenchimentos">
+                    <div class="campo-texto">
+                    </div>
+                    <button type="submit">Sair</button>
+            </div>
+    </div>
+
+    <footer>
+        <div>
+            Sistema Mascots v. 1.0
+        </div>
+    </footer>
+
+    <script>
+async function cadastrarAnimal() {
+    const nome = document.getElementById('nome').value;
+    const sexo = document.getElementById('sexo').value;
+    const raca = document.getElementById('raca').value;
+    const especie = document.getElementById('especie').value;
+    const tutor_id = document.getElementById('tutor_id').value; // Corrigido para tutor_id
+
+    if (!nome || !sexo || !raca || !especie || !tutor_id) {
+        alert('Por favor, preencha todos os campos.');
+        return;
+    }
+
+    const token = 'SEU_TOKEN_AQUI'; // Adicione seu token de autenticação
+
+    console.log('Tentando cadastrar animal com', { nome, sexo, raca, especie, tutor_id });
+
+    try {
+        const response = await fetch('http://127.0.0.1:3000/animals', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${token}` // Adicione o cabeçalho de autorização
+            },
+            body: JSON.stringify({ nome, sexo, raca, especie, tutor_id }) // Corrigido para tutor_id
+        });
+
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+
+        console.log('Status da resposta:', response.status);
+        console.log('Headers da resposta:', response.headers);
+        console.log('Resposta completa:', response);
+
+        const data = await response.json();
+        alert('Animal cadastrado com sucesso!');
+        console.log('Dados recebidos:', data);
+        
+    } catch (error) {
+        console.error('Erro ao cadastrar animal:', error);
+        alert('Erro ao cadastrar animal: ' + error.message);
+    }
+}
+    </script>
+</body>
+</html>

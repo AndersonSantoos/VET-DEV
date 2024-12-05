@@ -35,6 +35,10 @@ Rails.application.routes.draw do
   # Rota de Sessão de Login
   resources :sessoes, only: [:create, :destroy] # Para login e logout
 
+  # Rotas para sessões 
+  post '/sessoes', to: 'sessoes#create' 
+  delete '/sessoes', to: 'sessoes#destroy' 
+
   # http://localhost:3000/swagger-ui
   get '/api-docs' => 'swagger#index' 
   get '/swagger-ui' => 'swagger_ui#index' 

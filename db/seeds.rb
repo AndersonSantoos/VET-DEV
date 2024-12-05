@@ -25,10 +25,6 @@ Animal.create([
   { nome: 'Romeu', sexo: 'Masculino', especie: "Rato", raca: "SRD", tutor_id: 5}
 ])
 
-
-
-
-
 Veterinario.create([
   {nome: "Davi Godoy", email: "davi@gmail.com" , crmv: "12456789"},
   {nome: "Anderson Santos", email: "anderson@gmail.com" , crmv: "34591958"},

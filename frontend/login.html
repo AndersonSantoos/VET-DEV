@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mascot's</title>
+    <title>Mascot's - Login</title>
     <link rel="icon" href="anexos/favicon.png">
     <link rel="stylesheet" href="login.css">
 </head>
@@ -15,14 +15,51 @@
         <div class="fundo">
             <div class="titulo">Mascots</div>
             <div class="preenchimentos">
-                <div class="campo-texto">
-                    <input type="text" class="usuario" placeholder="Usuário">
-                    <input type="password" class="senha" placeholder="Senha">
-                </div>
-                <h2 class="texto-sistema">Esqueceu sua senha?</h2>
-                <button>LOGIN</button>
+                <form id="loginForm" onsubmit="login(); return false;">
+                    <div class="campo-texto">
+                        <input type="text" class="usuario" placeholder="Usuário" id="usuario" required autocomplete="username">
+                        <input type="password" class="senha" placeholder="Senha" id="senha" required autocomplete="current-password">
+                    </div>
+                    <h2 class="texto-sistema">Esqueceu sua senha?</h2>
+                    <button type="submit">LOGIN</button>
+                </form>
             </div>
         </div>
     </div>
+
+    <script>
+        async function login() {
+            const usuario = document.getElementById('usuario').value;
+            const senha = document.getElementById('senha').value;
+
+            console.log('Tentando fazer login com', { email: usuario, crmv: senha });
+
+            try {
+                const response = await fetch('http://127.0.0.1:3000/sessoes', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ email: usuario, crmv: senha })
+                });
+
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+
+                console.log('Status da resposta:', response.status);
+                console.log('Headers da resposta:', response.headers);
+                console.log('Resposta completa:', response);
+
+                const data = await response.json();
+                alert('Login realizado com sucesso!');
+                console.log('Dados recebidos:', data);
+                
+            } catch (error) {
+                console.error('Erro ao realizar login:', error);
+                alert('Erro ao realizar login: ' + error.message);
+            }
+        }
+    </script>
 </body>
 </html>

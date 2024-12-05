@@ -61,3 +61,4 @@ gem 'jwt'
 
 gem 'swagger-blocks', '~> 3.0'
 gem 'swagger-ui_rails'
+gem 'rack-cors'
